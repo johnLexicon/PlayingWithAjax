@@ -11,8 +11,10 @@
                 data-ajax-method="POST"
                 data-ajax-mode="replace"
                 data-ajax-update="#content"
+                data-ajax-begin="Begin"
                 data-ajax-success="Success"
                 data-ajax-failure="Failure"
+                data-ajax-complete="Complete"
                 >
                 <div class="form-group">
                     <label for="firstName">First name:</label>
@@ -34,11 +36,24 @@
     </div>
 </div>
 <script>
-    function Success() {
-        alert("Success");
+    function Begin(xhr) {
+        console.log(xhr);
     }
 
-    function Failure() {
-        alert("Failure");
+    function Success(data, status, xhr) {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
+    }
+
+    function Failure(error, status, xhr) {
+        console.log(error);
+        console.log(status);
+        console.log(xhr);
+    }
+
+    function Complete(xhr, status) {
+        console.log(status);
+        console.log(xhr);
     }
 </script>
