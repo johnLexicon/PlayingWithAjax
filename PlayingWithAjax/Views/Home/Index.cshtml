@@ -2,7 +2,43 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Ajax Form Example</h2>
+            <form asp-controller="Home" asp-action="SubmitForm"
+                data-ajax="true"
+                data-ajax-method="POST"
+                data-ajax-mode="replace"
+                data-ajax-update="#content"
+                data-ajax-success="Success"
+                data-ajax-failure="Failure"
+                >
+                <div class="form-group">
+                    <label for="firstName">First name:</label>
+                    <input name="firstName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name:</label>
+                    <input name="lastName" type="text" class="form-control" />
+                </div>
+                <input type="submit" name="Submit" class="btn btn-primary" />
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Submit View</h2>
+            <div id="content">
+                <h4>Here view will be updated with new information.</h4>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    function Success() {
+        alert("Success");
+    }
+
+    function Failure() {
+        alert("Failure");
+    }
+</script>

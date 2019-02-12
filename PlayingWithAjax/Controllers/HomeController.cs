@@ -15,6 +15,14 @@ namespace PlayingWithAjax.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SubmitForm(string firstName, string lastName)
+        {
+            ViewBag.FirstName = firstName;
+            ViewBag.LastName = lastName;
+            return View("About");
+        }
+
         public IActionResult Privacy()
         {
             return View();
