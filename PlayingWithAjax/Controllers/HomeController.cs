@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PlayingWithAjax.Models;
@@ -18,6 +19,7 @@ namespace PlayingWithAjax.Controllers
         [HttpPost]
         public IActionResult SubmitForm(string firstName, string lastName)
         {
+            Thread.Sleep(3000);
             ViewBag.FirstName = firstName;
             ViewBag.LastName = lastName;
             return View("About");
